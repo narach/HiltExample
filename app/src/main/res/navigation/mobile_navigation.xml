@@ -13,10 +13,22 @@
         <action
             android:id="@+id/action_main_to_list"
             app:destination="@id/carsListFragment" />
+        <action
+            android:id="@+id/action_main_to_add"
+            app:destination="@id/addCarFragment" />
     </fragment>
     <fragment
         android:id="@+id/carsListFragment"
         android:name="com.example.hiltexample.ui.fragments.CarsListFragment"
         android:label="fragment_cars_list"
         tools:layout="@layout/fragment_cars_list" />
+    <fragment
+        android:id="@+id/addCarFragment"
+        android:name="com.example.hiltexample.ui.fragments.AddCarFragment"
+        android:label="fragment_add_car"
+        tools:layout="@layout/fragment_add_car" >
+        <action
+            android:id="@+id/action_add_to_list"
+            app:destination="@id/carsListFragment" />
+    </fragment>
 </navigation>

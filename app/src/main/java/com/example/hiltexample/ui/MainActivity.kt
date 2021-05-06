@@ -3,10 +3,11 @@ package com.example.hiltexample.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.hiltexample.R
 import com.example.hiltexample.databinding.ActivityMainBinding
-import com.example.hiltexample.ui.adapters.CarAdapter
 import com.example.hiltexample.ui.viewmodels.CarsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +25,15 @@ class MainActivity : AppCompatActivity() {
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment ?: return
         val navController = host.navController
+        setupBottomNavMenu(navController)
 
         with(binding) {
+        }
+    }
+
+    private fun setupBottomNavMenu(navController: NavController) {
+        with(binding) {
+            bottomNavView.setupWithNavController(navController)
         }
     }
 }
